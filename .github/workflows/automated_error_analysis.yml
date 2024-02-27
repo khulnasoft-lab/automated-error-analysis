@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main  # or the branch you want to trigger this on
-
+env:
+  ARTEFECTS: "automated-error-analysis"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,13 +24,14 @@ jobs:
       with:
         python-version: '3.8'
       
-    - name: Activate Conda environment
-      run: conda activate error-analysis
-      
-    - name: Install PyTorch and dependencies
+    - name: Check out artefacts
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.repository_owner }}/${{ env.ARTEFECTS }}
+        token: ${{ secrets.ORG_REPO_TOKEN }}
+        path: ${{ env.ARTEFECTS }}
+
+    - name: Setup github user email and name
       run: |
-        conda install pytorch=1.13.1 torchvision=0.14.1 pytorch-cuda=11.6 -c pytorch -c nvidia
-        pip install -r requirements.txt
-
-    # Add more steps if necessary, like running tests, linting, etc.
-
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
