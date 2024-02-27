@@ -6,6 +6,7 @@ on:
       - main  # or the branch you want to trigger this on
 env:
   ARTEFECTS: "automated-error-analysis"
+  GITHUB_TOKEN: ${{ secrets.ORG_REPO_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest
