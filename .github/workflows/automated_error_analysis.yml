@@ -17,3 +17,19 @@ jobs:
       run: |
         wget http://files.sri.inf.ethz.ch/imagenet-error-analysis/artefacts.tar.gz
         tar -xvzf artefacts.tar.gz
+        
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: '3.8'
+      
+    - name: Activate Conda environment
+      run: conda activate error-analysis
+      
+    - name: Install PyTorch and dependencies
+      run: |
+        conda install pytorch=1.13.1 torchvision=0.14.1 pytorch-cuda=11.6 -c pytorch -c nvidia
+        pip install -r requirements.txt
+
+    # Add more steps if necessary, like running tests, linting, etc.
+
