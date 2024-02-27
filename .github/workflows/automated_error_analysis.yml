@@ -1,0 +1,20 @@
+name: Automated Error Analysis
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to trigger this on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Download and extract artefacts
+      run: |
+        cd automated-error-analysis
+        wget http://files.sri.inf.ethz.ch/imagenet-error-analysis/artefacts.tar.gz
+        tar -xvzf artefacts.tar.gz
