@@ -15,6 +15,5 @@ jobs:
       
     - name: Download and extract artefacts
       run: |
-        cd automated-error-analysis
         wget http://files.sri.inf.ethz.ch/imagenet-error-analysis/artefacts.tar.gz
         tar -xvzf artefacts.tar.gz
