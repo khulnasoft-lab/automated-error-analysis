@@ -12,6 +12,6 @@ seaborn==0.13.2
 tensorflow==2.12.1
 tensorflow-datasets==4.9.6
 timm==0.9.16
-transformers==4.36.0
+transformers==4.38.0
 tqdm==4.66.3
 git+https://github.com/openai/CLIP.git
