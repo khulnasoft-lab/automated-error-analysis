@@ -13,5 +13,5 @@ tensorflow==2.12.1
 tensorflow-datasets==4.9.6
 timm==1.0.12
 transformers==4.46.3
-tqdm==4.66.3
+tqdm==4.67.1
 git+https://github.com/openai/CLIP.git
